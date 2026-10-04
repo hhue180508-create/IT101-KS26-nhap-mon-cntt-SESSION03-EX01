@@ -1,0 +1,170 @@
+BÀI LÀM: QUẢN LÝ Ổ ĐĨA, TỐC ĐỘ MẠNG VÀ CẤU TRÚC THƯ MỤC
+PHẦN 1: PHÂN TÍCH
+1. Sai lầm về vị trí lưu trữ
+Nam đang lưu bài tập tại:
+C:\Windows\System32\Bai Tap Cua Nam\Session 01\bai tap 1.py
+Đây là cách lưu không phù hợp vì:
+C:\ thường là phân vùng chứa Windows và các tệp hệ thống.
+Windows\System32 là thư mục quan trọng của hệ điều hành, không phải nơi lưu bài tập cá nhân.
+Lưu file trong System32 có thể gây khó khăn về quyền truy cập và làm tăng nguy cơ ảnh hưởng đến các file hệ thống.
+Nếu Windows gặp lỗi và phải format/cài lại Windows trên ổ C, các bài tập lưu trên C có thể bị mất.
+Nên tách dữ liệu học tập khỏi phân vùng hệ thống và lưu trên D: nếu máy có ổ D.
+Cách sửa: tạo một thư mục riêng cho việc học trên ổ D.
+
+2. Sai lầm trong cách đặt tên file và thư mục
+Tên hiện tại:
+Bai Tap Cua Nam
+Session 01
+bai tap 1.py
+Có một số vấn đề:
+Có khoảng trắng.
+Có chữ hoa và chữ thường không thống nhất.
+Tên Bai Tap Cua Nam khá dài và mang tính cá nhân, không mô tả rõ nội dung dự án.
+bai tap 1.py có khoảng trắng, không thuận tiện khi sử dụng Terminal hoặc viết đường dẫn trong code.
+Để thống nhất, có thể sử dụng kebab-case:
+Chữ thường + không dấu + các từ được nối bằng dấu -.
+Ví dụ:
+bai-tap-1.py
+session-01
+nhap-mon-cntt
+
+3. Sai lầm về tốc độ mạng
+Nam có gói mạng:
+100 Mbps
+Nhưng khi tải file, máy hiển thị:
+12.5 MB/s
+Nam cho rằng nhà mạng lừa đảo. Nhận định này là sai.
+Lý do là Mbps và MB/s là hai đơn vị khác nhau:
+b = bit
+B = Byte
+1 Byte = 8 bit
+Do đó:
+100 Mbps ÷ 8 = 12.5 MB/s
+Vì vậy, tốc độ 12.5 MB/s về mặt lý thuyết hoàn toàn tương ứng với gói mạng 100 Mbps.
+Kết luận
+100 Mbps = 12.5 MB/s
+Do đó, việc Nam thấy tốc độ tải khoảng 12.5 MB/s không có nghĩa nhà mạng lừa đảo.
+Trong thực tế, tốc độ tải có thể thấp hơn một chút do nhiều yếu tố như Wi-Fi, máy chủ tải xuống, khoảng cách mạng, giao thức truyền tải và lưu lượng mạng.
+
+4. Vì sao SSD 256 GB lại hiển thị dung lượng thấp hơn 256 GB?
+Nam mua laptop có SSD được quảng cáo là:
+256 GB
+Nhưng khi kiểm tra trong Windows, dung lượng khả dụng có thể thấp hơn con số này.
+Có hai nguyên nhân chính:
+Nguyên nhân 1: Cách tính của nhà sản xuất và hệ điều hành
+Nhà sản xuất thường tính:
+1 GB = 1.000.000.000 Byte
+Trong khi hệ điều hành và một số công cụ có thể sử dụng cách tính theo cơ số 1024:
+1 GiB = 1.073.741.824 Byte
+Vì vậy, SSD được nhà sản xuất ghi là 256 GB khi quy đổi sang cách tính nhị phân sẽ có giá trị khoảng:
+256.000.000.000 ÷ 1.073.741.824
+≈ 238,4 GiB
+Do đó, Windows có thể hiển thị dung lượng khoảng 238 GB theo cách hiển thị của hệ thống.
+Nguyên nhân 2: Dung lượng dành cho hệ thống
+Ngoài sự khác biệt về cách tính, một phần dung lượng SSD còn được sử dụng cho:
+Windows.
+Phân vùng hệ thống.
+Phân vùng khôi phục.
+Các tệp hệ thống.
+Các tệp quản lý và phục vụ hoạt động của SSD.
+Vì vậy, dung lượng còn trống để người dùng sử dụng sẽ thấp hơn nữa.
+Lưu ý: SSD 256 GB không bị mất dung lượng bất thường. Đây là kết quả bình thường của cách quy đổi đơn vị và dung lượng dành cho hệ thống.
+
+PHẦN 2: THIẾT KẾ LẠI CÂY THƯ MỤC
+1. Nguyên tắc thiết kế
+Nam nên:
+Lưu bài tập trên D: thay vì C:\Windows\System32.
+Sử dụng kebab-case thống nhất.
+Không dùng tiếng Việt có dấu.
+Không dùng khoảng trắng.
+Tên thư mục ngắn gọn, dễ hiểu.
+Tuân thủ cấu trúc 3 cấp.
+Phân loại tài liệu theo 4 trụ cột.
+Có thể hiểu 4 trụ cột trong cây thư mục học tập gồm:
+Code: Mã nguồn, bài thực hành.
+Documents: Tài liệu học tập.
+Projects: Bài dự án.
+Resources: Tài nguyên tham khảo.
+
+2. Cây thư mục đề xuất
+D:\
+|
+|-- ptit/
+    |
+    |-- nhap-mon-cntt/
+        |
+        |-- code/
+        |   |-- session-01/
+        |   |   |-- bai-tap-1.py
+        |   |   |-- bai-tap-2.py
+        |   |
+        |   |-- session-02/
+        |       |-- bai-tap-1.py
+        |
+        |-- documents/
+        |   |-- session-01/
+        |   |   |-- ly-thuyet.md
+        |   |
+        |   |-- session-02/
+        |       |-- ghi-chu.md
+        |
+        |-- projects/
+        |   |-- session-01/
+        |   |   |-- project-01/
+        |   |
+        |   |-- session-02/
+        |       |-- project-02/
+        |
+        |-- resources/
+            |-- session-01/
+            |   |-- tai-lieu-tham-khao.pdf
+            |
+            |-- session-02/
+                |-- slide-bai-giang.pdf
+Giải thích cấu trúc 3 cấp
+Có thể xác định 3 cấp chính như sau:
+Cấp 1: ptit/
+        ↓
+Cấp 2: nhap-mon-cntt/
+        ↓
+Cấp 3: code/ | documents/ | projects/ | resources/
+Các thư mục session-01, session-02 và file bên trong là nội dung nằm bên trong các cấp đó, dùng để tiếp tục phân loại bài học.
+
+3. Vai trò của 4 trụ cột
+Thư mục
+Vai trò
+code/
+Lưu các file mã nguồn Python và bài thực hành.
+documents/
+Lưu ghi chú, lý thuyết và tài liệu học tập do Nam tự tạo.
+projects/
+Lưu các bài dự án hoặc bài tập lớn.
+resources/
+Lưu slide, PDF và tài liệu tham khảo từ giảng viên hoặc nguồn học tập.
+
+
+4. Đường dẫn bài tập sau khi sửa
+Thay vì:
+C:\Windows\System32\Bai Tap Cua Nam\Session 01\bai tap 1.py
+Nam nên tổ chức thành:
+D:\ptit\nhap-mon-cntt\code\session-01\bai-tap-1.py
+Cách này có ưu điểm:
+Không nằm trong thư mục hệ thống System32.
+Tách dữ liệu học tập khỏi Windows.
+Không có khoảng trắng.
+Không có dấu tiếng Việt.
+Dễ gõ trong Terminal.
+Dễ tìm kiếm và quản lý.
+Tên file và thư mục thống nhất theo kebab-case.
+Dễ mở rộng khi có thêm nhiều môn học hoặc nhiều buổi học.
+
+KẾT LUẬN
+Nam mắc 3 nhóm lỗi chính:
+Đầu tiên, về lưu trữ: Nam lưu bài tập trong C:\Windows\System32, đây là vị trí dành cho tệp hệ thống và không phù hợp để lưu dữ liệu cá nhân. Nên lưu bài tập trên D: hoặc một thư mục dữ liệu riêng.
+Tiếp tục, về Naming Convention: Nam sử dụng khoảng trắng và cách viết tên chưa thống nhất. Nên sử dụng kebab-case, ví dụ bai-tap-1.py, session-01, nhap-mon-cntt.
+Cuối cùng, về tốc độ mạng: Nam nhầm giữa bit và Byte. Gói mạng 100 Mbps tương đương tốc độ tối đa lý thuyết:
+100 ÷ 8 = 12.5 MB/s
+Vì vậy, tốc độ tải 12.5 MB/s là phù hợp với gói 100 Mbps, chưa thể kết luận nhà mạng lừa đảo.
+Còn SSD 256 GB là hiển thị thấp hơn là do khác biệt giữa cách tính GB/GiB và dung lượng dành cho hệ điều hành, phân vùng hệ thống, khôi phục, đây là hiện tượng bình thường.
+
+
